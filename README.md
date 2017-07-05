@@ -19,6 +19,7 @@ gallerytag:
     thumb_height: 150
     columns: 4                     # set to 0 and a <ul> list will be generated
     custom_attribute_name: data-lightbox
+    #structure: flat               # Output flat list of à la: <a>tumbnail-1</a>...<a>tumbnail-n</a>
 ```
 
 * `source_dir` — The path (relative to your top Jekyll directory, where is `_config.yml` stored) to the folder containing your gallery images. Default value _images/gallery_
@@ -60,7 +61,7 @@ subfolder/
 {% endgallery %}
 ```
 
-`subfolder/` is a directory with images in you `source_dir`. 
+`subfolder/` is a directory with images in you `source_dir`.
 
 Jekyll will output some HTML that is (intentionally) similar to what WordPress does for galleries in posts, making it relatively simple to tweak your CSS. It will also add custom attribute (default - `rel`) to the links, which contain the "galleryname" text as shown in the above example. This makes is easy to integrate a lightbox script like [FancyBox](http://fancyapps.com/fancybox/) or [Lightbox2](http://lokeshdhakar.com/projects/lightbox2/).
 

@@ -25,22 +25,29 @@ module Jekyll
       columns = !@config['columns'].nil? ? @config['columns'] : 4
       width = !@config['thumb_width'].nil? ? @config['thumb_width'] : 150
       height = !@config['thumb_height'].nil? ? @config['thumb_height'] : 150
+      flat = @config['structure'] == 'flat'
       custom_attribute_name = !@config['custom_attribute_name'].nil? ? @config['custom_attribute_name'] : 'rel'
       images = gallery_images(context)
 
       images_html = ''
-      images_html << "<ul class=\"gallery-list\">\n" if columns <= 0
-      images.each_with_index do |image, key|
-        if columns > 0
-          images_html << gen_images_column_html(image, width, height, custom_attribute_name, key, columns)
-        else
-          images_html << gen_images_list_html(image, width, height, custom_attribute_name)
+      if flat
+        images.each_with_index do |image, _key|
+          images_html << gen_img_html(image['url'], image['thumbnail'], width, height, image['caption'], custom_attribute_name)
         end
+      else
+        images_html << "<ul class=\"gallery-list\">\n" if columns <= 0
+        images.each_with_index do |image, key|
+          if columns > 0
+            images_html << gen_images_column_html(image, width, height, custom_attribute_name, key, columns)
+          else
+            images_html << gen_images_list_html(image, width, height, custom_attribute_name)
+          end
+        end
+        images_html << "</ul>\n" if columns <= 0
+        images_html << '<br style="clear: both;">' if columns > 0 && images.count % columns != 0
       end
-      images_html << "</ul>\n" if columns <= 0
-      images_html << '<br style="clear: both;">' if columns > 0 && images.count % columns != 0
-      gallery_html = "<div id=\"gallery-#{@gallery_name}\" class=\"gallery\">\n\n#{images_html}\n\n</div>\n"
 
+      gallery_html = "<div id=\"gallery-#{@gallery_name}\" class=\"gallery\">\n\n#{images_html}\n\n</div>\n"
       gallery_html
     end
 
