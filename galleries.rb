@@ -39,7 +39,7 @@ module Jekyll
       end
       images_html << "</ul>\n" if columns <= 0
       images_html << '<br style="clear: both;">' if columns > 0 && images.count % columns != 0
-      gallery_html = "<div class=\"gallery\">\n\n#{images_html}\n\n</div>\n"
+      gallery_html = "<div id=\"gallery-#{@gallery_name}\" class=\"gallery\">\n\n#{images_html}\n\n</div>\n"
 
       gallery_html
     end
