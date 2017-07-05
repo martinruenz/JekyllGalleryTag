@@ -203,7 +203,7 @@ module Jekyll
     end
 
     def thumbify(items)
-      require 'RMagick'
+      require 'rmagick'
 
       if items.count > 0
         items.each do |item|
