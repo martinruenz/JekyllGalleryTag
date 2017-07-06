@@ -19,7 +19,8 @@ gallerytag:
     thumb_height: 150
     columns: 4                     # set to 0 and a <ul> list will be generated
     custom_attribute_name: data-lightbox
-    #structure: flat               # Output flat list of à la: <a>tumbnail-1</a>...<a>tumbnail-n</a>
+    #structure: flat               # Output flat list of à la: <div><a>tumbnail-1</a>...<a>tumbnail-n</a></div>
+    generate_overlays: True # Add a div before each thumbnail image. This can be useful for hover-effects, see galleries.scss
 ```
 
 * `source_dir` — The path (relative to your top Jekyll directory, where is `_config.yml` stored) to the folder containing your gallery images. Default value _images/gallery_
