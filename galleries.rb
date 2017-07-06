@@ -36,7 +36,7 @@ module Jekyll
           images_html << gen_img_html(image['url'], image['thumbnail'], width, height, image['caption'], custom_attribute_name)
         end
       else
-        images_html << "<ul class=\"gallery-list\">\n" if columns <= 0
+        images_html << "<ul class='gallery-list'>\n" if columns <= 0
         images.each_with_index do |image, key|
           if columns > 0
             images_html << gen_images_column_html(image, width, height, custom_attribute_name, key, columns)
@@ -48,16 +48,16 @@ module Jekyll
         images_html << '<br style="clear: both;">' if columns > 0 && images.count % columns != 0
       end
 
-      gallery_html = "<div id=\"gallery-#{@gallery_name}\" class=\"gallery\">\n\n#{images_html}\n\n</div>\n"
+      gallery_html = "<div id='gallery-#{@gallery_name}' class='gallery'>\n\n#{images_html}\n\n</div>\n"
       gallery_html
     end
 
     def gen_images_column_html(image, width, height, custom_attribute_name, key, columns)
-      html =  "<dl class=\"gallery-item\">\n"
-      html << "<dt class=\"gallery-icon\">\n"
+      html =  "<dl class='gallery-item'>\n"
+      html << "<dt class='gallery-icon'>\n"
       html << gen_img_html(image['url'], image['thumbnail'], width, height, image['caption'], custom_attribute_name)
       html << "</dt>\n"
-      html << "<dd class=\"gallery-caption\">#{image['caption']}</dd>"
+      html << "<dd class='gallery-caption'>#{image['caption']}</dd>"
       html << "</dl>\n\n"
       html << '<br style="clear: both;">' if (key + 1) % columns == 0
 
@@ -74,13 +74,13 @@ module Jekyll
     end
 
     def gen_img_html(full_img_url, thumb_img_url, w, h, caption, custom_attribute_name)
-      img_html = "<a class=\"gallery-link\" href=\"#{full_img_url}\" title=\"#{caption}\" #{custom_attribute_name}=\"#{@gallery_name}\">"
+      img_html = "<a class='gallery-link' href='#{full_img_url}' title='#{caption}' #{custom_attribute_name}='#{@gallery_name}'>"
       if !@config['generate_overlays'].nil?
          img_html << "<div class='gallery-overlay' style='height: #{h}px; width: #{w}px;''></div>"
        end
-      img_html << "<img src=\"#{thumb_img_url}\" class=\"thumbnail\" width=\"#{w}\" height=\"#{h}\" />"
+      img_html << "<img src='#{thumb_img_url}' class='thumbnail' width='#{w}' height='#{h}' />"
       img_html << '</a>'
-      
+
       img_html
     end
 
