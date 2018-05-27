@@ -135,9 +135,11 @@ module Jekyll
     end
 
     def block_contents(context)
-      text = @nodelist[0].strip!
-      if (text.nil? || text.empty?) && !@nodelist[1].nil? # check if we have a variable in the nodelist
-        text = @nodelist[1].render(context) # render the variable
+      nl = nodelist()
+      text = nl[0].strip!
+
+      if (text.nil? || text.empty?) && !nl[1].nil? # check if we have a variable in the nodelist
+        text = nl[1].render(context) # render the variable
           end
       lines = text.split(/\n/).map(&:strip).reject(&:empty?)
       lines = lines.map do |line|
