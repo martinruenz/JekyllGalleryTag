@@ -66,4 +66,7 @@ subfolder/
 
 Jekyll will output some HTML that is (intentionally) similar to what WordPress does for galleries in posts, making it relatively simple to tweak your CSS. It will also add custom attribute (default - `rel`) to the links, which contain the "galleryname" text as shown in the above example. This makes is easy to integrate a lightbox script like [FancyBox](http://fancyapps.com/fancybox/) or [Lightbox2](http://lokeshdhakar.com/projects/lightbox2/).
 
-You can see it in action on my personal blog, [here.](http://matt.harzewski.com/2012/03/13/winterspyre-a-minecraft-creation/)
+Examples
+--------
+* You can find an example gallery generated with the original plugin here [here](http://matt.harzewski.com/2012/03/13/winterspyre-a-minecraft-creation/).
+* And an example of the forked version [here](https://www.martinruenz.de/article/research/2017/06/27/Co-Fusion-and-ICRA.html#page-content).
