@@ -76,7 +76,7 @@ module Jekyll
     def gen_img_html(full_img_url, thumb_img_url, w, h, caption, custom_attribute_name)
       img_html = "<a class='gallery-link' href='#{full_img_url}' title='#{caption}' #{custom_attribute_name}='#{@gallery_name}'>"
       if !@config['generate_overlays'].nil?
-         img_html << "<div class='gallery-overlay' style='height: #{h}px; width: #{w}px;''></div>"
+         img_html << "<div class='gallery-overlay' style='height: #{h}px; width: #{w}px;'></div>"
        end
       img_html << "<img src='#{thumb_img_url}' class='thumbnail' width='#{w}' height='#{h}' />"
       img_html << '</a>'
