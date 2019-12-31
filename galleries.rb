@@ -6,7 +6,7 @@
 # Authors: Matt Harzewski, Oleksii Schastlyvyi, Markus Konrad, Martin Rünz
 # Copyright: Copyright 2013 Matt Harzewski
 # License: GPLv3
-# Version: 1.4.0
+# Version: 1.4.1
 
 
 module Jekyll
